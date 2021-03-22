@@ -1,0 +1,141 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+body{
+  display:grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  grid-template-areas:
+  "navbar navbar navbar navbar"
+  "header header header header"
+  "main main main main";
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  box-sizing: border-box;
+}
+
+main{
+  grid-area:main;
+  min-height:100vh;
+}
+
+.searchWrapper{
+  text-align:center;
+}
+
+.searchbar{
+  padding:20px;
+  margin-top:40px;
+  width:40vw;
+  font-size:140%;
+  animation-name:bars;
+  animation-duration:7s;
+}
+
+.searchbar:focus{
+  outline: 3px solid #7f1a1a;
+}
+
+.cardWrapper{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 40px;
+  grid-column-gap: 40px;
+  padding:40px;
+}
+
+.card{
+  list-style:none;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+  transition: 0.3s;
+  border-radius: 5px;
+  border-top-left-radius:5px;
+  border-top-right-radius:5px;
+  text-align:center;
+  transition: 1s all;
+  animation-name:cards;
+  animation-duration:4s;
+}
+
+.card > h2{
+  background-color:#7f1a1a;
+  text-align:center;
+  color:white;
+  padding: 20px 40px;
+}
+
+.card:hover{
+  transform: translateY(-20px);
+  box-shadow: 0 30px 30px 0 rgba(0,0,0,0.3);
+}
+
+.card > p{
+  padding: 20px;
+}
+
+.navbar {
+  grid-area:navbar;
+  background-color:#7f1a1a;
+  height:35px;
+  padding:20px;
+  margin-bottom:20px;
+  animation-name:bars;
+  animation-duration:7s;
+}
+
+.navbar > a{
+  text-decoration: none;
+  color: white;
+  font-size:200%;
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 600px){
+  .cardWrapper{
+    grid-template-columns: 1fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    padding: 20px;
+  }
+  .searchbar{
+    width:80vw;
+  }
+  .navbar{
+    font-size:80%;
+    height:30px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width:1000px){
+  .cardWrapper{
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    padding: 20px;
+  }
+  .searchbar{
+    width:80vw;
+  }
+}
+
+@keyframes bars{
+  0%{
+    opacity:0;
+  }
+  100{
+    opacity:100;
+  }
+}
+
+@keyframes cards{
+  0%{
+    transform: translateY(500px);
+    opacity:0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity:1;
+  }
+}

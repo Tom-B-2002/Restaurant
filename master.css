@@ -1,0 +1,192 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+header{
+  grid-area:header;
+  height: 95vh;
+  background: url("pexels-pixabay-262047.jpg") no-repeat center center fixed;
+  position: relative;
+}
+
+header > h1 {
+  color: white;
+  position:absolute;
+  top:35%;
+  left:50%;
+  font-size: 300%;
+  font-weight: 500;
+  transform: translateX(-50%);
+  animation-name:header;
+  animation-duration:4s;
+  will-change:transform;
+}
+
+header > h1::before{
+  content:"";
+  width:17.8rem;
+  height:10px;
+  display:block;
+  position:absolute;
+  background-color:#7f1a1a;
+  margin-top:-0.8rem;
+  animation-name:headerbar;
+  animation-duration:7s;
+  animation-delay:3s;
+  animation-fill-mode:backwards;
+}
+
+header > h1::after{
+  content:"";
+  width:17.8rem;
+  height:10px;
+  display:block;
+  position:absolute;
+  background-color:#7f1a1a;
+  margin-top:0.8rem;
+  right:0%;
+  animation-name:headerbar;
+  animation-duration:10s;
+  animation-delay:3s;
+  animation-fill-mode:backwards;
+}
+
+header > a > button {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  font-size: 300%;
+  padding: 20px 40px;
+  color: white;
+  background-color: #7f1a1a;
+  border: 3px solid white;
+  font-size: 200%;
+  border-radius: 15px;
+  transform: translateX(-50%);
+  transition:4s;
+  animation-name:header;
+  animation-duration:4s;
+  will-change:transform;
+}
+
+header > a > button:hover{
+  cursor: pointer;
+  color:#7f1a1a;
+  background-color:white;
+  border: 3px solid #7f1a1a;
+  transition: 4s;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.6;
+}
+
+main{
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 80px;
+  grid-row-gap: 80px;
+  padding: 80px 0px;
+  animation-name:main;
+  animation-duration:7s;
+}
+
+main > figure > img{
+  width: 100%;
+  transition: 0.2s all;
+  margin-bottom:20px;
+}
+
+main > figure > img:hover{
+  transform: scale(1.2);
+}
+
+@media only screen and (max-width: 700px){
+  main{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  header > h1{
+  font-size:250%;
+  }
+  header > h1::before{
+    content:"";
+    width:14.9rem;
+    height:8px;
+  }
+  header > h1::after{
+    content:"";
+    width:14.9rem;
+    height:8px;
+  }
+  header > a > button {
+    font-size:150%;
+  }
+}
+
+a, a:hover, a:focus, a:active {
+      text-decoration: none;
+      color: inherit;
+ }
+
+ @media only screen and (max-width: 500px){
+   header > h1{
+     font-size:150%;
+   }
+   header > h1::before{
+     content:"";
+     width:9rem;
+     height:8px;
+   }
+   header > h1::after{
+     content:"";
+     width:9rem;
+     height:8px;
+   }
+   header > a > button {
+     font-size:100%;
+   }
+ }
+
+ @keyframes headerbar{
+   0%{
+     opacity:0;
+   }
+   100{
+     opacity:100;
+   }
+ }
+
+ @keyframes header{
+   0% {
+     left:0%;
+     opacity:0.5;
+   }
+   100 {
+     left:50%;
+     opacity:1;
+   }
+ }
+
+ @keyframes main{
+   0%{
+     opacity:0;
+   }
+   100{
+     opacity:100;
+   }
+ }

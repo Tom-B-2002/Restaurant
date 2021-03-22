@@ -1,0 +1,157 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: white;
+  font-family:'Open Sans', sans-serif;
+  display:grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  grid-template-areas:
+  "navbar navbar navbar navbar"
+  "header header header header"
+  "button button button button"
+  "ul ul ul ul";
+}
+
+header{
+  width:100%;
+  display:grid;
+  grid-area:header;
+  justify-content: center;
+  align-items: center;
+  animation-name:opacity;
+  animation-duration:4s;
+  will-change:transform;
+}
+
+h1{
+  color: #7f1a1a;
+  font-size:300%;
+  margin-top:40px;
+  margin-bottom:40px;
+}
+
+ul{
+  display:grid;
+  grid-area:ul;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-row-gap: 40px;
+  padding:40px;
+  margin-top:80px;
+  animation-name:cards;
+  animation-duration:4s;
+}
+
+ul > li{
+  width: 300px;
+  height:300px;
+  list-style:none;
+  border:3px solid #7f1a1a;
+  border-radius: 50%;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  font-size:150%;
+  color:#7f1a1a;
+}
+
+.navbar {
+  grid-area:navbar;
+  background-color:#7f1a1a;
+  height:85px;
+  padding:20px;
+  margin-bottom:20px;
+  animation-name:opacity;
+  animation-duration:7s;
+}
+
+.navbar > a{
+  text-decoration: none;
+  color: white;
+  font-size:200%;
+  margin-right: 20px;
+}
+
+button {
+  margin: 0 auto;
+  margin-left:210px;
+  margin-top:20px;
+  padding: 20px 40px;
+  color: white;
+  background-color: #7f1a1a;
+  border: 3px solid white;
+  font-size: 200%;
+  border-radius: 15px;
+  transition:4s;
+  animation-name:opacity;
+  animation-duration:4s;
+  will-change:transform;
+}
+
+button:hover{
+  cursor: pointer;
+  color:#7f1a1a;
+  background-color:white;
+  border: 3px solid #7f1a1a;
+  transition: 4s;
+}
+
+@media only screen and (max-width: 650px){
+  ul{
+    grid-template-columns: 1fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    padding: 20px;
+  }
+  button{
+    margin-left:50px;
+    font-size:110%;
+    padding:10px;
+    transition:0s;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width:1000px){
+  ul{
+    grid-template-columns: 1fr 1fr;
+  }
+  button{
+    margin-left:100px;
+    font-size:150%;
+    padding:10px;
+    transition:0s;
+  }
+}
+
+@media only screen and (min-width: 1000px) and (max-width:1300px){
+  ul{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  button{
+    margin-left:180px;
+    transition:0s;
+  }
+}
+
+@keyframes opacity{
+  0%{
+    opacity:0;
+  }
+  100{
+    opacity:100;
+  }
+}
+
+@keyframes cards{
+  0%{
+    transform: translateY(500px);
+    opacity:0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity:1;
+  }
+}

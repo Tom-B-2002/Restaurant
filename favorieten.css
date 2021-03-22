@@ -1,0 +1,245 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1{
+  padding-top:15px;
+  animation-name:bars;
+  animation-duration:7s;
+}
+
+main > form {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 80px;
+    grid-row-gap: 40px;
+    padding: 40px 0;
+}
+
+main > .dishes {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 80px;
+    grid-row-gap: 40px;
+    padding: 40px 0;
+}
+
+main > .dishes > article {
+    position: relative;
+    transition: 0.4s all;
+    animation-name: cards;
+    animation-duration: 4s;
+    animation-timing-function: ease;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+    will-change: transform;
+}
+
+main > .dishes > article > figure > img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+main > .dishes > article:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+main > .dishes > article > h2 {
+    position: absolute;
+    top: 0;
+    color: white;
+    font-size: 140%;
+    padding: 20px 20px;
+    z-index: 9;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 250px;
+    opacity: 0.6;
+    background-color: black;
+}
+
+.hartje {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+    transform: rotate(45deg);
+    background-color: white;
+    transition: 0.5s all;
+}
+
+.hartje .topLeftCircle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background-color: white;
+    transition: 0.5s all;
+}
+
+.hartje .topRightCircle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background-color: white;
+    transition: 0.5s all;
+}
+
+.hartje:hover, .hartje:hover .topRightCircle, .hartje:hover .topLeftCircle {
+    background-color: #7f1a1a;
+}
+
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 13.33333px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    transition: all 0.15s ease-out 0s;
+    background: white;
+    border: 3px solid #7f1a1a;
+    color: #7f1a1a;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+    animation-name:bars;
+    animation-duration:7s;
+}
+.option-input:checked {
+    background: #7f1a1a;
+}
+.option-input:checked::before {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    content: '';
+    display: inline-block;
+    font-size: 26.66667px;
+    color:#7f1a1a;
+    text-align: center;
+    line-height: 40px;
+}
+.option-input:checked::after {
+    -webkit-animation: none;
+    -moz-animation: none;
+    animation: none;
+    background: #7f1a1a;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+.option-input.radio {
+    border-radius: 50%;
+}
+.option-input.radio::after {
+    border-radius: 50%;
+}
+
+.navbar {
+  grid-area:navbar;
+  background-color:#7f1a1a;
+  height:80px;
+  padding:20px;
+  margin-bottom:20px;
+  animation-name:bars;
+  animation-duration:7s;
+}
+
+.navbar > a{
+  text-decoration: none;
+  color: white;
+  font-size:200%;
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 700px) {
+    main > .dishes {
+        grid-template-columns: 1fr;
+    }
+
+    main > .dishes > article > h2 {
+        font-size: 120%;
+    }
+
+    main > form {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 700px) and (max-width: 900px) {
+    main > .dishes {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    main > .dishes > article > h2 {
+        font-size: 130%;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    main > .dishes {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@keyframes cards{
+  0%{
+    transform: translateY(500px);
+    opacity:0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity:1;
+  }
+}
+
+@keyframes bars{
+  0%{
+    opacity:0;
+  }
+  100{
+    opacity:100;
+  }
+}
